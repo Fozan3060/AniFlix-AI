@@ -24,16 +24,24 @@ export const useMovies = () => {
     queryKey: ['popularTv'],
     queryFn: tmdbApi.getPopularTvShows
   })
-  
+
   return { trending, topRated, nowPlaying, upcomming, popularTv }
 }
 
 export const useSearchMovies = (movieName: string) => {
-  const queryEnabled = movieName.trim().length > 0;
+  const queryEnabled = movieName.trim().length > 0
 
   return useQuery({
-    queryKey: ["searchMovies", movieName],
+    queryKey: ['searchMovies', movieName],
     queryFn: () => tmdbApi.getSearchMovies(movieName),
-    enabled: queryEnabled,
-  });
-};
+    enabled: queryEnabled
+  })
+}
+
+export const useMovieDetails = (movieId: number) => {
+  return useQuery({
+    queryKey: ['movieDetails', movieId],
+    queryFn: () => tmdbApi.getMovieDetails(movieId),
+    enabled: !!movieId
+  })
+}

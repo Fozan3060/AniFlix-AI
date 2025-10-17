@@ -34,7 +34,13 @@ export const tmdbApi = {
   getSearchMovies: async (movie: string) => {
     const { data } = await api.get('/search/movie', { params: { query: movie } })
     return data.results
-  }
+  },
+  getMovieDetails: async (id: number) => {
+  const { data } = await api.get(`/movie/${id}`, {
+    params: { append_to_response: "credits,videos" },
+  });
+  return data;
+},
 }
 
 export const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p/w500'
