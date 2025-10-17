@@ -9,11 +9,9 @@ import {
 } from "react-native"
 import { LinearGradient } from "expo-linear-gradient"
 import { Ionicons } from "@expo/vector-icons"
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 import { useMovies } from "@/src/hooks/useMovies"
 import { IMAGE_BASE_URL } from "@/src/api/tmdb"
 
-const queryClient = new QueryClient()
 
 const HomeContent = () => {
   const { trending, topRated ,nowPlaying,upcomming,popularTv} = useMovies()
@@ -205,9 +203,7 @@ const HomeContent = () => {
 }
 
 const Index = () => (
-  <QueryClientProvider client={queryClient}>
     <HomeContent />
-  </QueryClientProvider>
 )
 
 export default Index
