@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const BASE_URL = "https://api.themoviedb.org/3"
-const TMDB_API_KEY = process.env.EXPO_TMDB_API_KEY
+const TMDB_API_KEY = process.env.EXPO_PUBLIC_MDB_API_KEY
 const api = axios.create({
   baseURL: BASE_URL,
   headers: {
