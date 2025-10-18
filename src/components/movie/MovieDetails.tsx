@@ -14,6 +14,7 @@ import {
 import { CastList } from './CastList';
 import { MovieHeader } from './MovieHeader';
 import { TrailerModal } from './TrailerModal';
+import { colors } from '@/src/theme';
 
 const MovieDetails = ({ movie }: { movie: Movie }) => {
   const [showTrailer, setShowTrailer] = useState(false);
@@ -110,11 +111,10 @@ const MovieDetails = ({ movie }: { movie: Movie }) => {
 };
 
 const styles = StyleSheet.create({
-  // ... (previous styles)
-  container: { flex: 1, backgroundColor: '#0B0B1E' },
+  container: { flex: 1, backgroundColor: colors.background },
   contentContainer: { padding: 16, gap: 24, marginTop: -50 },
   playButton: {
-    backgroundColor: '#AB8BFF',
+    backgroundColor: colors.primary,
     borderRadius: 8,
     flexDirection: 'row',
     justifyContent: 'center',
@@ -122,13 +122,13 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     gap: 8,
   },
-  playButtonText: { color: '#FFFFFF', fontWeight: 'bold', fontSize: 18 },
+  playButtonText: { color: colors.text, fontWeight: 'bold', fontSize: 18 },
   infoContainer: { marginLeft: 10, gap: 20 },
-  title: { color: '#FFFFFF', fontSize: 30, fontWeight: 'bold', marginBottom: 8 },
+  title: { color: colors.text, fontSize: 30, fontWeight: 'bold', marginBottom: 8 },
   metadataContainer: { flexDirection: 'row', alignItems: 'center', gap: 16 },
-  mutedText: { color: '#A8B5DB' },
+  mutedText: { color: colors.muted },
   ratingContainer: { flexDirection: 'row', alignItems: 'center', gap: 4 },
-  accentText: { color: '#AB8BFF', fontWeight: 'bold' },
+  accentText: { color: colors.primary, fontWeight: 'bold' },
   actionsContainer: {
     flexDirection: 'row',
     justifyContent: 'flex-start',
@@ -137,35 +137,33 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   actionItem: { alignItems: 'center', gap: 4 },
-  actionText: { color: '#A8B5DB', fontSize: 12 },
-  tagline: { color: '#A8B5DB', fontStyle: 'italic', textAlign: 'center' },
-  overview: { color: '#A8B5DB', lineHeight: 24, fontSize: 16 },
+  actionText: { color: colors.muted, fontSize: 12 },
+  tagline: { color: colors.muted, fontStyle: 'italic', textAlign: 'center' },
+  overview: { color: colors.muted, lineHeight: 24, fontSize: 16 },
   sectionTitle: {
-    color: '#FFFFFF',
+    color: colors.text,
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 12,
   },
   genresList: { flexDirection: 'row', flexWrap: 'wrap' },
   genrePill: {
-    backgroundColor: '#0F0D23',
+    backgroundColor: colors.secondary,
     borderRadius: 9999,
     paddingHorizontal: 12,
     paddingVertical: 4,
     marginRight: 8,
     marginBottom: 8,
   },
-  genreText: { color: '#D6C7FF', fontSize: 14 },
-
-  // 4. Add the styles for the close button
+  genreText: { color: colors.lightText, fontSize: 14 },
   closeButtonContainer: {
     position: 'absolute',
-    top: 10, // Adjust this value to account for the status bar
+    top: 10,
     right: 10,
     zIndex: 10,
   },
   closeButton: {
-    backgroundColor: 'rgba(0,0,0,0.5)',
+    backgroundColor: colors.overlay,
     borderRadius: 20,
     width: 40,
     height: 40,

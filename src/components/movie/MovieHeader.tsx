@@ -1,7 +1,8 @@
-import React from 'react';
-import { View, ImageBackground, StyleSheet } from 'react-native';
-import { LinearGradient } from 'expo-linear-gradient';
 import { getImageUrl } from '@/src/utils/tmdb';
+import { LinearGradient } from 'expo-linear-gradient';
+import React from 'react';
+import { ImageBackground, StyleSheet, View } from 'react-native';
+import { colors } from '@/src/theme'; // Import colors
 
 interface MovieHeaderProps {
   backdropPath: string | null;
@@ -14,12 +15,12 @@ export const MovieHeader = ({ backdropPath }: MovieHeaderProps) => {
       style={styles.backdrop}
     >
       <LinearGradient
-        colors={['transparent', 'rgba(11, 11, 30, 0.8)', '#0B0B1E']}
+        colors={['transparent', colors.backdropOverlay, colors.background]}
         style={styles.gradient}
       />
     </ImageBackground>
   ) : (
-    <View style={[styles.backdrop, { backgroundColor: '#0F0D23' }]} />
+    <View style={[styles.backdrop, { backgroundColor: colors.secondary }]} />
   );
 };
 

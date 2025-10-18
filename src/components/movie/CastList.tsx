@@ -1,8 +1,9 @@
-import React from 'react';
-import { View, Text, FlatList, Image, StyleSheet } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import { CastMember } from '@/src/types'; // We'll create this types file next
 import { getImageUrl } from '@/src/utils/tmdb';
+import { Ionicons } from '@expo/vector-icons';
+import React from 'react';
+import { FlatList, Image, StyleSheet, Text, View } from 'react-native';
+import { CastMember } from '@/src/types';
+import { colors } from '@/src/theme';
 
 interface CastListProps {
   cast: CastMember[];
@@ -30,7 +31,7 @@ export const CastList = ({ cast }: CastListProps) => {
               />
             ) : (
               <View style={styles.castImagePlaceholder}>
-                <Ionicons name="person" size={48} color="#A8B5DB" />
+                <Ionicons name="person" size={48} color={colors.muted} />
               </View>
             )}
             <Text style={styles.castName} numberOfLines={2}>
@@ -45,23 +46,28 @@ export const CastList = ({ cast }: CastListProps) => {
 
 const styles = StyleSheet.create({
   sectionTitle: {
-    color: '#FFFFFF',
+    color: colors.text,
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 12,
   },
   castItem: { alignItems: 'center', marginRight: 16, width: 96 },
-  castImage: { width: 96, height: 96, borderRadius: 48 },
+  castImage: {
+    width: 96,
+    height: 96,
+    borderRadius: 48,
+    backgroundColor: colors.cardMuted,
+  },
   castImagePlaceholder: {
     width: 96,
     height: 96,
     borderRadius: 48,
-    backgroundColor: '#06061a',
+    backgroundColor: colors.cardMuted,
     justifyContent: 'center',
     alignItems: 'center',
   },
   castName: {
-    color: '#FFFFFF',
+    color: colors.text,
     textAlign: 'center',
     marginTop: 8,
     fontSize: 12,
