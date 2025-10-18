@@ -1,3 +1,4 @@
+// src/components/movie/TrailerModal.tsx
 import React from 'react';
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
 import YoutubeIframe from 'react-native-youtube-iframe';
@@ -9,7 +10,12 @@ interface TrailerModalProps {
   onStateChange: (state: string) => void;
 }
 
-export const TrailerModal = ({ isVisible, trailerKey, onClose, onStateChange }: TrailerModalProps) => {
+export const TrailerModal = ({
+  isVisible,
+  trailerKey,
+  onClose,
+  onStateChange,
+}: TrailerModalProps) => {
   if (!trailerKey) {
     return null;
   }
@@ -22,14 +28,17 @@ export const TrailerModal = ({ isVisible, trailerKey, onClose, onStateChange }: 
       onRequestClose={onClose}
     >
       <Pressable style={styles.modalBackdrop} onPress={onClose}>
-        <View style={styles.videoContainer}>
-          <YoutubeIframe
-            height={300}
-            play={true}
-            videoId={trailerKey}
-            onChangeState={onStateChange}
-          />
-        </View>
+        {/* This Pressable stops the touch from closing the modal */}
+        <Pressable>
+          <View style={styles.videoContainer}>
+            <YoutubeIframe
+              height={300}
+              play={true}
+              videoId={trailerKey}
+              onChangeState={onStateChange}
+            />
+          </View>
+        </Pressable>
       </Pressable>
     </Modal>
   );
@@ -42,5 +51,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  videoContainer: { width: '100%', aspectRatio: 16 / 9 },
+  videoContainer: {
+    width: '100%',
+    aspectRatio: 16 / 9,
+  },
 });

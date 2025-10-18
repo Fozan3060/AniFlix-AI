@@ -4,7 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router'; // 1. Import useRouter
 import React, { useCallback, useMemo, useState } from 'react';
 import {
-  SafeAreaView, // 1. Import SafeAreaView
+  SafeAreaView, 
   ScrollView,
   StyleSheet,
   Text,
@@ -17,7 +17,7 @@ import { TrailerModal } from './TrailerModal';
 
 const MovieDetails = ({ movie }: { movie: Movie }) => {
   const [showTrailer, setShowTrailer] = useState(false);
-  const router = useRouter(); // 2. Initialize the router
+  const router = useRouter(); 
 
   const trailer = useMemo(
     () => movie.videos?.results.find((v) => v.official && v.type === 'Trailer'),
@@ -36,7 +36,7 @@ const MovieDetails = ({ movie }: { movie: Movie }) => {
         <MovieHeader backdropPath={movie.backdrop_path} />
 
         <View style={styles.contentContainer}>
-          {/* ... The rest of your component's JSX remains the same ... */}
+
           {trailer && (
             <TouchableOpacity
               onPress={() => setShowTrailer(true)}
