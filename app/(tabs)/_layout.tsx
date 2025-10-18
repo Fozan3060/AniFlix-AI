@@ -17,7 +17,7 @@ function TabBarIcon({ focused, activeIcon, inactiveIcon }: TabBarIconProps) {
       style={{
         backgroundColor: focused ? 'transparent' : 'transparent',
         borderRadius: 50,
-        height: 40,
+        height: 60,
         width: 100,
         justifyContent: 'center',
         alignItems: 'center',
@@ -31,8 +31,8 @@ function TabBarIcon({ focused, activeIcon, inactiveIcon }: TabBarIconProps) {
           end={{ x: 1, y: 0 }}
           style={{
             borderRadius: 50,
-            height: 50,
-            width: 100,
+            height: 40,
+            width: 80,
             flexDirection: 'row',
             justifyContent: 'center',
             alignItems: 'center',
@@ -40,16 +40,17 @@ function TabBarIcon({ focused, activeIcon, inactiveIcon }: TabBarIconProps) {
             shadowColor: '#E62E89',
             shadowOpacity: 0.3,
             shadowRadius: 8,
+            marginBottom:8,
             shadowOffset: { width: 0, height: 2 },
           }}
         >
-          <Ionicons name={activeIcon} size={20} color="#fff" />
-          <Text style={{ color: '#fff', fontWeight: '600', fontSize: 12 }}>
+          <Ionicons name={activeIcon} size={24} color="#fff" />
+          {/* <Text style={{ color: '#fff', fontWeight: '600', fontSize: 10 }}>
             {activeIcon.charAt(0).toUpperCase() + activeIcon.slice(1)}
-          </Text>
+          </Text> */}
         </LinearGradient>
       ) : (
-        <Ionicons name={inactiveIcon} size={22} color="#A8B5DB" />
+        <Ionicons style={{marginBottom:10}} name={inactiveIcon} size={24} color="#A8B5DB" />
       )}
     </View>
   )
@@ -68,13 +69,13 @@ export default function TabsLayout() {
         },
         tabBarStyle: {
           position: 'absolute',
-          bottom: 14,
+          margin:"auto",
+          bottom: 0,
           width: '100%',
-          height: 50,
-          borderRadius: 30,
-          backgroundColor: 'rgba(11,12,16,0.9)', // #0B0C10 transparent dark
+          height: 65,
+          backgroundColor: 'rgba(11,12,16,1)', // #0B0C10 transparent dark
           borderTopWidth: 0,
-          elevation: 10
+          elevation: 15,
         }
       }}
     >

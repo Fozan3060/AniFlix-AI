@@ -41,23 +41,13 @@ const HomeContent = () => {
           style={{ borderRadius: 20 }}
           className="p-[2px]"
         >
-          <View className="p-5 bg-dark-card rounded-2xl">
-            <Text className="text-text-primary text-xl font-semibold mb-2">
-              Featured Movie
-            </Text>
-            <Text className="text-muted-text mb-4">
-              Discover what's trending this week
-            </Text>
-            <TouchableOpacity className="self-start bg-gradient-to-r from-[#5C27FE] to-[#E62E89] px-4 py-2 rounded-xl">
-              <Text className="text-white font-medium">Explore Now</Text>
-            </TouchableOpacity>
-          </View>
+         
         </LinearGradient>
       </View>
 
       {/* Trending Movies */}
-      <View className="mt-8">
-        <Text className="text-text-primary text-lg font-semibold px-5 mb-3">
+      <View className="mt-2">
+        <Text className="text-text-primary text-xl font-semibold px-5 mb-3">
           Trending Now
         </Text>
         <ScrollView
@@ -87,7 +77,7 @@ const HomeContent = () => {
 
       {/* Top Rated */}
       <View className="mt-8 ">
-        <Text className="text-text-primary text-lg font-semibold px-5 mb-3">
+        <Text className="text-text-primary text-xl font-semibold px-5 mb-3">
           Top Rated
         </Text>
         <ScrollView
@@ -115,7 +105,7 @@ const HomeContent = () => {
         </ScrollView>
       </View>
             <View className="mt-8 ">
-        <Text className="text-text-primary text-lg font-semibold px-5 mb-3">
+        <Text className="text-text-primary text-xl font-semibold px-5 mb-3">
           Upcomming Movies
         </Text>
         <ScrollView
@@ -143,7 +133,7 @@ const HomeContent = () => {
         </ScrollView>
       </View>
             <View className="mt-8 ">
-        <Text className="text-text-primary text-lg font-semibold px-5 mb-3">
+        <Text className="text-text-primary text-xl font-semibold px-5 mb-3">
           Popular Tv Shows
         </Text>
         <ScrollView
@@ -171,7 +161,7 @@ const HomeContent = () => {
         </ScrollView>
       </View>
          <View className="mt-8 mb-20">
-        <Text className="text-text-primary text-lg font-semibold px-5 mb-3">
+        <Text className="text-text-primary text-xl font-semibold px-5 mb-3">
           Now Playing
         </Text>
         <ScrollView

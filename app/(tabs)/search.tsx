@@ -33,7 +33,7 @@ const SearchScreen = () => {
 
   return (
     <View className='flex-1 bg-dark-200 px-4 pt-6'>
-      <Text className='text-light-100 text-2xl mt-3 font-bold mb-4'>Search Movie</Text>
+      <Text className='text-light-100 text-2xl mt-6 font-bold mb-4'>Search Movie</Text>
 
       {/* Improved Input */}
       <View className='flex-row items-center bg-secondary/80 rounded-2xl px-4 py-1 mb-8 border border-dark-100 shadow-sm'>
