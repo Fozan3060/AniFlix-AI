@@ -1,37 +1,47 @@
-import { tmdbApi } from '@/src/api/tmdb'
-import MovieDetails from '@/src/components/MovieDetails'
-import { useQuery } from '@tanstack/react-query'
-import { useLocalSearchParams } from 'expo-router'
-import React from 'react'
-import { ActivityIndicator, Text, View } from 'react-native'
+import { tmdbApi } from '@/src/api/tmdb';
+import MovieDetails from '@/src/components/movie/MovieDetails';
+import { useQuery } from '@tanstack/react-query';
+import { Stack, useLocalSearchParams } from 'expo-router';
+import React from 'react';
+import { ActivityIndicator, Text, View } from 'react-native';
 
-const MovieDetailsPage = () => {
-  const { id } = useLocalSearchParams<{ id: string }>()
-  const movieId = Number(id)
+const MovieDetailsScreen = () => {
+  // 1. Get the 'id' from the URL, e.g., /movie/157336
+  const { id } = useLocalSearchParams<{ id: string }>();
+  const movieId = Number(id);
 
+  // 2. Fetch the movie data using React Query
   const { data, isLoading, error } = useQuery({
     queryKey: ['movieDetails', movieId],
     queryFn: () => tmdbApi.getMovieDetails(movieId),
-    enabled: !!movieId,
-  })
+    enabled: !!movieId, // Only run the query if movieId is valid
+  });
 
-  if (isLoading)
+  // 3. Show a loading indicator while fetching
+  if (isLoading) {
     return (
-      <View className="flex-1 justify-center items-center bg-dark-bg">
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#0B0B1E' }}>
         <ActivityIndicator size="large" color="#AB8BFF" />
       </View>
-    )
+    );
+  }
 
-  if (error)
+  // 4. Show an error message if fetching fails
+  if (error) {
     return (
-      <View className="flex-1 justify-center items-center bg-dark-bg">
-        <Text className="text-white">Failed to load movie details.</Text>
+      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center', backgroundColor: '#0B0B1E' }}>
+        <Text style={{ color: 'white' }}>Failed to load movie details.</Text>
       </View>
-    )
+    );
+  }
 
-  if (!data) return null
+  // 5. If data is ready, render the MovieDetails component
+  return (
+    <>
+      <Stack.Screen options={{ headerShown:false}} />
+      {data && <MovieDetails movie={data} />}
+    </>
+  );
+};
 
-  return <MovieDetails movie={data} />
-}
-
-export default MovieDetailsPage
+export default MovieDetailsScreen;
